@@ -1,15 +1,10 @@
-const express  = require ('express')
-const router = express.Router();
-const {getPrivateData} = require('../controllers/private')
-const {protect} = require ('../middleware/auth')
-// const getProfile  = require ('../controllers/profile')
-
+// const express  = require ('express')
 // const router = express.Router();
+// const {getPrivateData} = require('../controllers/private')
+// const {protect} = require ('../middleware/auth')
 
-// router.get('/',getProfile)
 
-router.get('/',protect,getPrivateData)
+// router.get('/',protect,getPrivateData)
 
-module.exports = router
+// module.exports = router
 
-// export default router

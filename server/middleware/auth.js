@@ -1,9 +1,8 @@
 const jwt = require('jsonwebtoken');
 const User = require("../model/auth")
-const Profile = require('../model/profilemodel')
 const ErrorResponse = require('../utils/errorresponse')
 
-exports.protect = async(req,res,next)=>{
+const protect = async(req,res,next)=>{
     let token;
 
     if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
@@ -25,7 +24,7 @@ exports.protect = async(req,res,next)=>{
             return next(new ErrorResponse("No user found with ths id",404));
         }
 
-        req.user = user;
+        req.userid = user._id;
         next();
     }catch (error){
         console.log(error)
@@ -33,3 +32,4 @@ exports.protect = async(req,res,next)=>{
     }
 
 }
+module.exports = protect

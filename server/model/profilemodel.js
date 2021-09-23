@@ -7,11 +7,11 @@ const profileSchema = new Schema({
         type: String,
         required:true
     },
-    Email: {
-        type: String,
-        required: true,
-        unique: true
-    },
+    // Email: {
+    //     type: String,
+    //     required: true,
+    //     unique: true
+    // },
     Degree: {
         type: String
     },
@@ -37,6 +37,11 @@ const profileSchema = new Schema({
         type: String,
         required: true
     },
+    userid : {
+        type: String,
+        required: true
+
+    }
 })
 
 

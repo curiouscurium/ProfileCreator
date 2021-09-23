@@ -17,13 +17,8 @@ app.use(cors())
 
 
 
-const authRoute = require( './routes/auth')
-// const profileRoute = require('./routes/profile')
-
-
-
-app.use('/user',authRoute)
-app.use('/user/private',require('./routes/private'))
+app.use('/user',require( './routes/auth'))
+// app.use('/user/private',require('./routes/private'))
 // app.use('/profile',profileRoute)
 
 

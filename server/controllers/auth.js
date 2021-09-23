@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken')
 
 exports.register = async(req,res,next) => {
     const {name,email,password} = req.body;
+    console.log(req.body)
 
     try{
         const user = await User.create({
@@ -20,6 +21,7 @@ exports.register = async(req,res,next) => {
 
 exports.login = async (req,res) =>{
     const{email,password} = req.body;
+    console.log(req.body)
 
     if(!email || !password){
         res.status(200).json({success:false,error:"please provide credentials"})
@@ -48,5 +50,6 @@ exports.login = async (req,res) =>{
 
 const sendToken = (user,statuscode,res) =>{
    const token = user.getSignedToken();
+   console.log(token)
    res.status(statuscode).json({success:true,token})
 }
