@@ -12,7 +12,7 @@ mongoose.connect(process.env.DB_CONNECT,
 );
 
 app.use(express.json());
-app.use(express.urlencoded())
+app.use(express.urlencoded({extended:true}))
 app.use(cors())
 
 

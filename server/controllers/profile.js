@@ -2,14 +2,14 @@ const Profile = require('../model/profilemodel')
 
 
 exports.createProfile = async(req,res,next) => {
-    const {contactNumber,Email,Degree,IntermediateEducation,WorkExperience1,gender,dob,userid} = req.body;
+    const {contactNumber,Email,Degree,IntermediateEducation,WorkExperience1,gender,dob} = req.body;
     console.log(req.body)
     try{
         const profiledata = await Profile.create({
-            contactNumber,Email,Degree,IntermediateEducation,WorkExperience1,gender,dob,userid
+            contactNumber,Email,Degree,IntermediateEducation,WorkExperience1,gender,dob,userid:req.userid
         })
         console.log(profiledata)
-        res.status(201).json({success:true,profiledata})
+        return res.status(201).json({success:true,profiledata})
         // sendToken(profiledata,201,res)
 
     }catch(error){
@@ -19,10 +19,11 @@ exports.createProfile = async(req,res,next) => {
 
 exports.getProfile = async(req,res,next) => {
     try{
-        let result = await Profile.find(req.params.id)
-        res.send(result)
+        let result = await Profile.find({userid:req.userid})
         console.log(result)
-    }catch (err){
+        console.log(req.userid)
+        return res.json(result);
+       }catch (err){
         res.status(500).send({message:err.message})
     }
 }

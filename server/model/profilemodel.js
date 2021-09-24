@@ -7,11 +7,12 @@ const profileSchema = new Schema({
         type: String,
         required:true
     },
-    // Email: {
-    //     type: String,
-    //     required: true,
-    //     unique: true
-    // },
+    Email: {
+        type: String,
+        required: true,
+        unique: true,
+        sparse :true
+    },
     Degree: {
         type: String
     },

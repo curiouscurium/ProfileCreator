@@ -24,7 +24,7 @@ const protect = async(req,res,next)=>{
             return next(new ErrorResponse("No user found with ths id",404));
         }
 
-        req.userid = user._id;
+        req.userid = user._id.toString();
         next();
     }catch (error){
         console.log(error)

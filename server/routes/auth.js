@@ -12,7 +12,7 @@ routeruser.post('/register',register)
 routeruser.post('/login',login)
 
 routeruser.post('/profile',protect,createProfile)
-routeruser.get('/profile/:id',protect,getProfile)
+routeruser.get('/profile',protect,getProfile)
 // routeruser.get('/profile',getProfile)
 
 // routeruser.post('/login',profile)
